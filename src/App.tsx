@@ -16,11 +16,13 @@ const App = () => {
   const [updateFrequency, setUpdateFrequency] = useState(100);
 
   const cellChangeHandler = (x: number, y: number, newValue: boolean) => {
-    setGrid((prevGrid) => {
-      const newGrid = [...prevGrid];
-      newGrid[x][y] = newValue;
-      return newGrid;
-    })
+    if (!running) {
+      setGrid((prevGrid) => {
+        const newGrid = [...prevGrid];
+        newGrid[x][y] = newValue;
+        return newGrid;
+      })
+    }
   }
 
   const toggleRunning = () => setRunning(!running)
