@@ -9,7 +9,7 @@ const livingNeighbors = (i: number, j: number, grid: boolean[][]) => {
          alive(i + 1, j + 1, grid);
 }
 
-const alive = (i: number, j: number, grid: boolean[][]) => {
+export const alive = (i: number, j: number, grid: boolean[][]) => {
   const sizeX = grid.length;
   const sizeY = grid[0].length;
   if (i >= 0 && i < sizeX && j >= 0 && j < sizeY ) {

@@ -26,3 +26,27 @@ npm install eslint-plugin-react --save-dev
 ```
 
   and added `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Jest
+
+    npm install jest --save-dev
+    npm install @testing-library/react --save-dev
+    npm install ts-jest @types/jest --save-dev
+    npm install ts-node @testing-library/jest-dom --save-dev
+    npm install jest-environment-jsdom
+
+In package.json, add `"test": "jest"`.
+
+Add jest.config.ts
+
+    export default {
+        preset: 'ts-jest',
+        testEnvironment: 'jest-environment-jsdom',
+        transform: {
+            "^.+\\.tsx?$": "ts-jest" 
+        // process `*.tsx` files with `ts-jest`
+        },
+        moduleNameMapper: {
+            '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__ mocks __/fileMock.js',
+        },
+    }
